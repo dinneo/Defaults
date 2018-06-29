@@ -58,9 +58,11 @@ public extension UserDefaults {
 			return object(forKey: key) as? T
 		}
 
-		guard let text = string(forKey: key),
-			let data = "[\(text)]".data(using: .utf8) else {
-				return nil
+		guard
+			let text = string(forKey: key),
+			let data = "[\(text)]".data(using: .utf8)
+		else {
+			return nil
 		}
 
 		do {
